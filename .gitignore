@@ -1,26 +1,2 @@
-lib-cov
-*.seed
-*.log
-*.csv
-*.dat
-*.out
-*.pid
-*.gz
-
-pids
-logs
-results
-build
-
-
-# OS generated files #
-######################
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
 readline-6.2.4.1-py2.7-macosx-10.7-intel.egg
+.DS_STORE
