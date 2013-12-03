@@ -1,0 +1,85 @@
+Steinberg L|Comput Math &amp; Scienc (Lecture)|4.08|3.98|3.70|4.08|4.04|3.64|3.50|2.86|3.68|3.68
+Nayak N|Intro Computers&amp;appl|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Chirco Jt|Intro Computers&amp;appl (Lecture)|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Braff E|Intro Computers&amp;appl|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Nayak N|Intro Computers&amp;appl|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Shivalingaiah S|Intro Computers&amp;appl|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Shivalingaiah S|Intro Computers&amp;appl|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Braff E|Intro Computers&amp;appl|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Trees F|Intro Computers&amp;appl (Lecture)|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Gurjar A|Intro Computers&amp;appl|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Singh J|Intro Computers&amp;appl|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Singh J|Intro Computers&amp;appl|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Singh B|Intro Computers&amp;appl|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Gurjar A|Intro Computers&amp;appl|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Belowich A|Intro Computers&amp;appl (Lecture)|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Taub D|Intro Computers&amp;appl|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+lu Yunfei|Intro Computers&amp;appl|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Singh B|Intro Computers&amp;appl|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Taub D|Intro Computers&amp;appl|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Lu Yunfei|Intro Computers&amp;appl|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Belowich A|Intro Computers&amp;appl (Lecture)|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Venkatesan N|Intro Computers&amp;appl|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Venkatesan N|Intro Computers&amp;appl|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Gangadharbatla|Intro Computers&amp;appl|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Surve S|Intro Computers&amp;appl|4.31td>|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Surve S|Intro Computers&amp;appl|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Venkatesan N|Intro Computers&amp;appl|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Gangadharbatla|Intro Computers&amp;appl|4.31|4.24|4.00|4.31|4.34|3.94|4.00|3.35|3.99|3.87
+Tjang A|Intro Computer Sci (Lecture)|4.49|4.49|4.49|4.52|4.27|4.30|4.34|4.31|4.48|4.23
+Tjang A|Intro Computer Sci (Lecture)|4.49|4.49|4.49|4.52|4.27|4.30|4.34|4.31|4.48|4.23
+Venugopal S|Data Structures (Lecture)|4.43|4.16|4.13|4.31|4.19|3.95|4.14|4.53|4.02|4.04
+Tjang A|Data Structures (Lecture)|4.43|4.16|4.13|4.31|4.19|3.95|4.14|4.53|4.02|4.04
+Appenzeller J|Comp Apps-Business (Lecture)|4.37|4.28|4.04|4.26|4.25|4.01|4.23|3.41|4.06|4.04
+Reddy A|Comp Apps-Business|4.37|4.28|4.04|4.26|4.25|4.01|4.23|3.41|4.06|4.04
+Reddy A|Comp Apps-Business|4.37|4.28|4.04|4.26|4.25|4.01|4.23|3.41|4.06|4.04
+Gopalakrishnan N|Comp Apps-Business|4.37|4.28|4.04|4.26|4.25|4.01|4.23|3.41|4.06|4.04
+Laverde Duarte C|Comp Apps-Business|4.37|4.28|4.04|4.26|4.25|4.01|4.23|3.41|4.06|4.04
+Gopalakrishnan N|Comp Apps-Business|4.37|4.28|4.04|4.26|4.25|4.01|4.23|3.41|4.06|4.04
+Feldman N|Comp Apps-Business|4.37|4.28|4.04|4.26|4.25|4.01|4.23|3.41|4.06|4.04
+Katpally A|Comp Apps-Business|4.37|4.28|4.04|4.26|4.25|4.01|4.23|3.41|4.06|4.04
+Feldman N|Comp Apps-Business|4.37|4.28|4.04|4.26|4.25|4.01|4.23|3.41|4.06|4.04
+Laverde Duarte C|Comp Apps-Business|4.37|4.28|4.04|4.26|4.25|4.01|4.23|3.41|4.06|4.04
+Moto A|Comp Apps-Business|4.37|4.28|4.04|4.26|4.25|4.01|4.23|3.41|4.06|4.04
+Balasubramanian V|Comp Apps-Business|4.37|4.28|4.04|4.26|4.25|4.01|4.23|3.41|4.06|4.04
+Balasubramanian V|Comp Apps-Business|4.37|4.28|4.04|4.26|4.25|4.01|4.23|3.41|4.06|4.04
+Vagheliya B|Comp Apps-Business|4.37|4.28|4.04|4.26|4.25|4.01|4.23|3.41|4.06|4.04
+Appenzeller J|Comp Apps-Business (Lecture)|4.37|4.28|4.04|4.26|4.25|4.01|4.23|3.41|4.06|4.04
+Vagheliya B|Comp Apps-Business|4.37|4.28|4.04|4.26|4.25|4.01|4.23|3.41|4.06|4.04
+Singh H|Comp Apps-Business|4.37|4.28|4.04|4.26|4.25|4.01|4.23|3.41|4.06|4.04
+Singh H|Comp Apps-Business|4.37|4.28|4.04|4.26|4.25|4.01|4.23|3.41|4.06|4.04
+Vagheliya B|Comp Apps-Business|4.37|4.28|4.04|4.26|4.25|4.01|4.23|3.41|4.06|4.04
+Moto A|Comp Apps-Business|4.37|4.28|4.04|4.26|4.25|4.01|4.23|3.41|4.06|4.04
+Zafrani David|Comp Apps-Business|4.37|4.28|4.04|4.26|4.25|4.01|4.23|3.41|4.06|4.04
+Zafrani David|Comp Apps-Business|4.37|4.28|4.04|4.26|4.25|4.01|4.23|3.41|4.06|4.04
+Katpally A|Comp Apps-Business|4.37|4.28|4.04|4.26|4.25|4.01|4.23|3.41|4.06|4.04
+Katpally A|Comp Apps-Business|4.37|4.28|4.04|4.26|4.25|4.01|4.23|3.41|4.06|4.04
+Stone M|Honor Sem Comp Sci (Lecture)|4.22|4.44|4.33|4.78|5.00|4.67|4.33|4.44|4.33|4.33
+Minsky N|Intr Discret Strct I (Lecture)|3.35|3.41|3.14|3.60|4.05|3.04|2.96|3.30|3.01|3.02
+Cash D|Intr Discrt Strct II (Lecture)|4.24|4.39|4.07|4.49|4.34|4.03|4.07|3.67|4.08|4.21
+Russell B|Computer Architectur (Lecture)|3.63|3.80|3.43|4.01|4.08|3.47|3.49|3.81|3.25|3.46
+Gu Yuanzhen|Computer Architectur|3.63|3.80|3.43|4.01|4.08|3.47|3.49|3.81|3.25|3.46
+Venugopal S|Software Methodology (Lecture)|3.85|3.69|3.41|3.89|3.54|3.35|3.66|4.18|3.33|3.43
+Kremer U|Prin Prog Languages (Lecture)|4.49|4.50|4.26|4.51|4.37|4.32|4.29|3.98|4.37|4.26
+Ames J|Prin Prog Languages|4.49|4.50|4.26|4.51|4.37|4.32|4.29|3.98|4.37|4.26
+Richter G|Numer Anal Computing (Lecture)|4.40|4.27|4.03|4.40|4.39|4.03|3.90|3.60|4.13|3.97
+Borgida A|Prin Info &amp; Data Mgt (Lecture)|3.19|3.43|3.00|3.83|3.70|2.90|3.36|3.60|2.95|3.07
+Kim, Radhakrishnan Jongpi, Vignesh|Prin Info &amp; Data Mgt|3.19|3.43|3.00|3.83|3.70|2.90|3.36|3.60|2.95|3.07
+Kim, Radhakrishnan Jongpi, Vignesh|Prin Info &amp; Data Mgt|3.19|3.43|3.00|3.83|3.70|2.90|3.36|3.60|2.95|3.07
+Bakry, Dobson A, Andrew|Dsgn&amp;anal Comp Algor|4.36|4.29|3.78|4.28|4.04|3.84|3.99|3.90|3.94|3.86
+Bekris K|Dsgn&amp;anal Comp Algor (Lecture)|4.36|4.29|3.78|4.28|4.04|3.84|3.99|3.90|3.94|3.86
+Basit, Dobson Abdul, Andrew|Dsgn&amp;anal Comp Algor|4.36|4.29|3.78|4.28|4.04|3.84|3.99|3.90|3.94|3.86
+Mitsui,Dobson M, Andrew|Dsgn&amp;anal Comp Algor|4.36|4.29|3.78|4.28|4.04|3.84|3.99|3.90|3.94|3.86
+Li, Sanik Meng, Kevin|Internet Technology|4.02|3.89|3.47|4.00|4.23|3.49|3.72|3.74|3.68|3.72
+Krzyzanowski P|Internet Technology (Lecture)|4.02|3.89|3.47|4.00|4.23|3.49|3.72|3.74|3.68|3.72
+Sha W|Internet Technology|4.02|3.89|3.47|4.00|4.23|3.49|3.72|3.74|3.68|3.72
+Shariat Talkhoonche S|Sem Computer&amp;society (Lecture)|3.73|4.55|4.27|4.36|4.00|4.00|3.64|3.36|4.09|3.55
+Kulikowski C|Sem Computer&amp;society (Lecture)|3.73|4.55|4.27|4.36|4.00|4.00|3.64|3.36|4.09|3.55
+Yan, Boronson Zi, Peter|Compilers (Lecture)|4.27|4.24|3.86|4.64|4.39|3.76|4.14|3.78|4.09|3.82
+Bianchini R|Oper System Design (Lecture)|4.17|4.24|4.00|4.31|3.90|3.77|4.34|4.07|3.96|3.86
+Mota Cavalcanti Acox,Zhan, MD Guilherme,Ying, Haqu|Oper System Design|4.17|4.24|4.00|4.31|3.90|3.77|4.34|4.07|3.96|3.86
+Mota Cavalcanti Acox,Zhan,MD Guilherme,Ying, Haque|Oper System Design|4.17|4.24|4.00|4.31|3.90|3.77|4.34|4.07|3.96|3.86
+Francisco J|Oper System Design (Lecture)|4.17|4.24|4.00|4.31|3.90|3.77|4.34|4.07|3.96|3.86
+Poppy B|Computer Security|4.13|4.27|4.03|4.33|4.25|4.03|4.10|4.10|4.13|4.34
+Ganapathy V|Computer Security (Lecture)|4.13|4.27|4.03|4.33|4.25|4.03|4.10|4.10|4.13|4.34
+Allender E|Formal Lang&amp;automata (Lecture)|4.26|4.42|4.11|4.58|4.23|3.75|4.37|3.58|4.30|4.16
