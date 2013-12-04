@@ -2,6 +2,7 @@
 from BeautifulSoup import BeautifulSoup
 import re
 
+# TODO - input from http response
 index_html = open('index.html', 'r')
 targetFile = open('ratingsCS.txt', 'w')
 soup = BeautifulSoup(index_html)
