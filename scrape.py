@@ -59,6 +59,10 @@ for year in years:
 	for school in schools['schools']:
 	    # print school[0]
 	    # get the dept
+    
+	    if int(school[0]) is not 01:
+		continue
+
 	    br.open(build_url("courseFilter", sem, year, school[0]))
 	    assert br.viewing_html()
 	    depts = ast.literal_eval(br.response().read())
