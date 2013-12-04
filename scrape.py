@@ -3,6 +3,14 @@ import re
 import sys
 import getpass
 
+def build_url(semester, year, schoolCode, dept, course=""):
+    baseURL = "https://sirs.ctaar.rutgers.edu/index.php"
+    baseQueryURL = "?survey%5Bsemester%5D="+semester+"&survey%5Byear%5D="+year+"&survey%5Bschool%5D="+schoolCode+"&survey%5Bdept%5D="+dept+"&survey%5Bcourse%5D="+course+"&mode=course"
+    return baseURL+baseQueryURL
+
+depts = ["220", "198","195"]
+
+
 if len(sys.argv) < 2:
     print "Usage: python scrape.py <netID>"
     sys.exit(0)
@@ -15,26 +23,25 @@ password = getpass.getpass()
 semester = "Spring"
 year = "2013"
 schoolCode = "01"
-dept = "198"
 course = ""
 
 # urls
 baseURL = "https://sirs.ctaar.rutgers.edu/index.php"
-baseQueryURL = "?survey%5Bsemester%5D="+semester+"&survey%5Byear%5D="+year+"&survey%5Bschool%5D="+schoolCode+"&survey%5Bdept%5D="+dept+"&survey%5Bcourse%5D="+course+"&mode=course',"
+# create browser object
 
 br = mechanize.Browser()
-br.open(baseURL+baseQueryURL)
+br.open(baseURL)
 assert br.viewing_html()
 
 # select and submit form
+# print br.response().read()
 br.select_form(nr=0)
 br.form['username'] = username
 br.form['password'] = password
 br.submit()
 
-# form response => should log us in
-login_response = br.response()
-print "response url = "
-print login_response.geturl()
-print login_response.info()  # headers
-print login_response.read()
+for dept in depts:
+    url = build_url(semester, year, schoolCode, dept)
+    br.open(url)
+    print br.response().read()
+
