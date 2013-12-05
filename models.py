@@ -12,3 +12,7 @@ class Section:
         self.ratings = ratings
 
 class Course:
+    def __init__(self, courseID):
+        self.courseID = courseID
+        self.professors = []
+        self.sections = []
