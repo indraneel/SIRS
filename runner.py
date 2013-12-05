@@ -64,9 +64,9 @@ def makeObject(dirpath, filename):
 num_folds = 10
 for (dirpath, dirnames, filenames) in os.walk("./parsed-data/"):
     # TODO - divvy 9/10 into train, 1/10 into test
-    # subset_training_size = len(filenames)/num_folds
+    #subset_training_size = len(filenames)/num_folds
     for filename in filenames:
-        # for i in range(0, subset_training_size - 1):
+        #for i in range(0, subset_training_size - 1):
         if filename[-4:] == ".txt":
             makeObject(dirpath, filename)
 
@@ -101,7 +101,7 @@ def create_big_matrix(global_dict, question_type):
 
     return temp_x, temp_y # and doing the same for y, and returning them
 
-big_x, big_y = create_big_matrix(professorDict, 0)
+big_x, big_y = create_big_matrix(professorDict, 1)
 #so we're looking at question 2*** question TWO, the quality of class one
 # after iterating through the big matrix of all the sections
 # big_x, big_y = create_big_matrix(courseDict)
