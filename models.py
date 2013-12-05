@@ -2,9 +2,13 @@ class Professor:
     def __init__(self, name):
         self.name = name
         self.all_sections = []
+        self.courses = []
 
     def add_section(self, newSection):
         self.all_sections.append(newSection)
+
+    def add_course(self, new_course):
+        self.courses.append(new_course)
 
     def get_x_matrix(self):
         x_matrix = []
@@ -49,6 +53,9 @@ class Course:
 
     def add_section(self, newSection):
         self.all_sections.append(newSection)
+
+    def add_professor(self, new_professor):
+        self.professors.append(new_professor)
 
     def get_x_matrix(self):
         x_matrix = []
