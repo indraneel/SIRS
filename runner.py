@@ -1,5 +1,7 @@
 import models as m
 import os
+import numpy
+from scipy import linalg
 
 professorDict = {}
 courseDict = {}
@@ -19,10 +21,18 @@ def makeObject(dirpath, filename):
         currProfessor = professorDict[pName]
         currProfessor.add_section(newSection)
 
-fileCount = 0
 for (dirpath, dirnames, filenames) in os.walk("./parsed-data/"):
     for filename in filenames:
         if filename[-4:] == ".txt":
             makeObject(dirpath, filename)
-print professorDict['BRILL GARY'].get_matrix()
-print len(professorDict['BRILL GARY'].get_matrix())
+
+brillMatrix = professorDict['BRILL GARY'].get_matrix()
+X = []
+Y = []
+for i in brillMatrix:
+    X.append(i[:-2])
+    Y.append(i[8:])
+X = numpy.array(X)
+Y = numpy.array(Y)
+print (X.T).dot(X)
+#print linalg.inv(X.T.dot(X)).dot(X.T)
