@@ -12,6 +12,9 @@ class Professor:
             matrix.append(section.ratings)
         return matrix
 
+    def __repr__(self):
+        return self.name
+
 
 class Section:
     def __init__(self, courseID, professor, ratings):
@@ -19,9 +22,15 @@ class Section:
         self.professor = professor
         self.ratings = ratings
 
+    def __repr__(self):
+        return self.courseID + " " + self.professor + " " + str(self.ratings)
+
 
 class Course:
     def __init__(self, courseID):
         self.courseID = courseID
         self.professors = []
         self.sections = []
+
+    def __repr__(self):
+        return self.courseID + " and this has " + len(self.sections) + " sections"
