@@ -57,12 +57,19 @@ class Course:
 
         return x_matrix
 
-    def get_y_matrix(self):
+    def get_y_matrix(self, question):
         y_matrix = []
         for section in self.all_sections:
-            y_matrix.append(section.y)
+            if not section:
+                continue
+
+            if not len(section.y) == 2:
+                continue
+
+            y_matrix.append(section.y[question])
 
         return y_matrix
+
 
     def __repr__(self):
         return self.courseID + " and this has " + len(self.sections) + " sections"

@@ -63,110 +63,66 @@ via seeing their weights after linear regression
 
 big_x = []
 big_y = []
-for item in professorDict:
-    for x_val in professorDict[item].get_x_matrix():
-        big_x.append(x_val)
+def create_big_matrix(global_dict):
+    temp_x = []
+    temp_y = []
+    for item in global_dict:
+        for x_val in global_dict[item].get_x_matrix():
+            temp_x.append(x_val)
 
-    for y_val in professorDict[item].get_y_matrix(1):
-        big_y.append(y_val)
+        for y_val in global_dict[item].get_y_matrix(1):
+            temp_y.append(y_val)
 
-# print "big x"
-# print "~~~~~"
-# print big_x
-# print "big y"
-# print "~~~~~"
-# print big_y
+    return temp_x, temp_y
+
+big_x, big_y = create_big_matrix(professorDict)
+
 
 
 """
     put the arrays into the numpy arrays
-"""
-
-X = numpy.array(big_x)
-Y = numpy.array(big_y)
-#import pdb
-#pdb.set_trace();
-print "X\n~~"
-print X
-print "Y\n~~"
-print Y
-
-"""
     then, do a linear regresion aka:
         weight vector = (Xtrans * X)^-1 * Xtrans * y
         normalize the weights
         looking at the weights can determine impact
 """
 
-Xt = X.T
-# print "Xt"
-# print Xt
-XtX = numpy.dot(Xt,X)
-# print "XtX"
-# print XtX
-XtXinv = numpy.linalg.inv(XtX)
-# print "XtXinv"
-# print XtXinv
-XtXinvXt = numpy.dot(XtXinv, Xt)
-# print "XtXinvXt"
-# print XtXinvXt
-XtXinvXtY = numpy.dot(XtXinvXt, Y) #unweighted theta vector
-print "XtXinvXtY"
-print "---------"
-print XtXinvXtY
+""" returns normalized weights given big_x and big_y """
+def linear_regression(big_x, big_y):
+    X = numpy.array(big_x)
+    Y = numpy.array(big_y)
+    Xt = X.T
+    # print "Xt"
+    # print Xt
+    XtX = numpy.dot(Xt,X)
+    # print "XtX"
+    # print XtX
+    XtXinv = numpy.linalg.inv(XtX)
+    # print "XtXinv"
+    # print XtXinv
+    XtXinvXt = numpy.dot(XtXinv, Xt)
+    # print "XtXinvXt"
+    # print XtXinvXt
+    XtXinvXtY = numpy.dot(XtXinvXt, Y) #unweighted theta vector
+    #print "XtXinvXtY"
+    #print "---------"
+    #print XtXinvXtY
 
-#normalize
-XtXinvXtYt = XtXinvXtY.T
-normalized_weights = [(item/(math.sqrt(numpy.dot(XtXinvXtYt,XtXinvXtY))))for item in XtXinvXtY]
-# print "normalized_weights"
-# print normalized_weights
+    #normalize
+    XtXinvXtYt = XtXinvXtY.T
+    normalized_weights = [(item/(math.sqrt(numpy.dot(XtXinvXtYt,XtXinvXtY))))for item in XtXinvXtY]
+    return normalized_weights
+
 count = 0
-for item in normalized_weights:
-    print count,item
+for item in linear_regression(big_x, big_y):
+    print "weight of question number ",count+1,"=",item
     count+=1
 
 
+"""
+then, go through a professor's (any professor's)
+entire section list and average all the x1s->x8s
+plug in these averages into this: X * theta
+AND THAT SHOULD EQUAL THE PREDICTION FOR
 
 """
-    then, go through a professor's (any professor's)
-    entire section list and average all the x1s->x8s
-    plug in these averages into this: X * theta
-    AND THAT SHOULD EQUAL THE PREDICTION FOR
-
-"""
-
-# brillX = professorDict['BRILL GARY'].get_x_matrix()
-# brillY = professorDict['BRILL GARY'].get_y_matrix()
-
-#print bigXMatrix
-#print bigYMatrix
-#print (X.T).dot(X)
-#print (linalg.inv(X.T.dot(X)).dot(X.T)).dot(Y)
-#print "---------------------"
-#print "X"
-#print "~~"
-#print X
-#print "---------------------"
-#print "X.T"
-#print "~~"
-#print X.T
-#print "---------------------"
-#print "X.T.dot(X)"
-#print "~~"
-#print X.T.dot(X)
-#print "---------------------"
-#print "linalg.inv(X.T.dot(X))"
-#print "~~"
-#print linalg.inv(X.T.dot(X))
-#print "---------------------"
-#print "linalg.inv(X.T.dot(X)).dot(X.T)"
-#print "~~"
-#print (linalg.inv(X.T.dot(X))).dot(X.T)
-#print "---------------------"
-#print "Y"
-#print "~~"
-#print Y
-#print "---------------------"
-#print "(linalg.inv(X.T.dot(X)).dot(X.T)).dot(Y)"
-#print "~~"
-#print (linalg.inv(X.T.dot(X)).dot(X.T)).dot(Y)
