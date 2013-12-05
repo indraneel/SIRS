@@ -22,9 +22,7 @@ def makeObject(dirpath, filename):
 fileCount = 0
 for (dirpath, dirnames, filenames) in os.walk("./parsed-data/"):
     for filename in filenames:
-        fileCount += 1
-        if fileCount > 10:
-            break
         if filename[-4:] == ".txt":
             makeObject(dirpath, filename)
 print professorDict['BRILL GARY'].get_matrix()
+print len(professorDict['BRILL GARY'].get_matrix())
