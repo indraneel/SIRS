@@ -1,0 +1,13 @@
+- scrape all search results off SIRS > save them to files in ./raw-data/
+- go through all files in ./raw-data/ and parse them to ./parsed-data/
+
+- go through all files in ./parsed-data/ and create the global Professor dictionary
+    with Professor objects that contain Section objects
+        { name : object}
+
+        Professors have a list of Sections from which
+        the matrix can be built
+
+- Build matrix, use numpy to find functions 
+
+
