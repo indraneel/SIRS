@@ -1,3 +1,4 @@
+import math
 import models as m
 import os
 import numpy
@@ -19,6 +20,9 @@ def makeObject(dirpath, filename):
         CID = fields[1]
 
         if CID == "NONE":
+            continue
+
+        if all( float(field)==0.0 for field in fields[2:]):
             continue
 
         # check if rating lengths too small
@@ -80,8 +84,8 @@ for item in professorDict:
 
 X = numpy.array(big_x)
 Y = numpy.array(big_y)
-# import pdb
-# pdb.set_trace();
+#import pdb
+#pdb.set_trace();
 print "X\n~~"
 print X
 print "Y\n~~"
@@ -94,18 +98,33 @@ print Y
         looking at the weights can determine impact
 """
 
-# Xt = X.T
-# print "X"
-# print X
+Xt = X.T
 # print "Xt"
 # print Xt
-# XtX = (numpy.dot(Xt,X))
-# XtXinv = numpy.linalg.inv(XtX)
-# XtXinvXt = numpy.dot(XtXinv, Xt)
-# XtXinvXtY = numpy.dot(XtXinvXt, Y)
-# print "XtXinvXtY"
-# print "---------"
-# print XtXinvXtY
+XtX = numpy.dot(Xt,X)
+# print "XtX"
+# print XtX
+XtXinv = numpy.linalg.inv(XtX)
+# print "XtXinv"
+# print XtXinv
+XtXinvXt = numpy.dot(XtXinv, Xt)
+# print "XtXinvXt"
+# print XtXinvXt
+XtXinvXtY = numpy.dot(XtXinvXt, Y) #unweighted theta vector
+print "XtXinvXtY"
+print "---------"
+print XtXinvXtY
+
+#normalize
+XtXinvXtYt = XtXinvXtY.T
+normalized_weights = [(item/(math.sqrt(numpy.dot(XtXinvXtYt,XtXinvXtY))))for item in XtXinvXtY]
+# print "normalized_weights"
+# print normalized_weights
+count = 0
+for item in normalized_weights:
+    print count,item
+    count+=1
+
 
 
 """
