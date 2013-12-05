@@ -5,7 +5,7 @@ import requests
 import sys
 import getpass
 
-raw_files_dir = "./raw-files/"
+raw_files_dir = "/root/SIRS/raw-data/"
 
 def build_url(name="index", semester="", year="", schoolCode="", dept="", course=""):
     baseURL = "https://sirs.ctaar.rutgers.edu/"+name+".php"
@@ -59,7 +59,7 @@ for year in years:
 	for school in schools['schools']:
 	    # print school[0]
 	    # get the dept
-    
+
 	    if int(school[0]) is not 01:
 		continue
 
@@ -81,7 +81,7 @@ for year in years:
 		    assert br.viewing_html()
 		except:
 		    print "it failed = "
-		    print full_url 
+		    print full_url
 
 		target_file.write(br.response().read())
 		print "just finished = " + full_url
