@@ -1,16 +1,18 @@
 import random
+import sys
 import math
 import models as m
 import os
 import numpy
 from scipy import linalg
+from collections import OrderedDict
 import itertools
 
-professorDict = {} # train
-courseDict = {} # train
+professorDict = {}  # train
+courseDict = {}  # train
 
 testProfessorDict= {}
-testCourseDict = {} # test
+testCourseDict = {}  # test
 
 
 """parse and make Section and Professor objects"""
@@ -34,7 +36,7 @@ def makeObject(dirpath, filename):
         if CID == "NONE":
             continue
 
-        if all( float(field)==0.0 for field in fields[2:]):
+        if all(float(field) == 0.0 for field in fields[2:]):
             continue
 
         # check if rating lengths too small
@@ -63,7 +65,6 @@ def makeObject(dirpath, filename):
 
 num_folds = 10
 for (dirpath, dirnames, filenames) in os.walk("./parsed-data/"):
-    # TODO - divvy 9/10 into train, 1/10 into test
     #subset_training_size = len(filenames)/num_folds
     for filename in filenames:
         #for i in range(0, subset_training_size - 1):
@@ -89,8 +90,7 @@ big_y = []
         1: 'y2 (quality of course)'
     }"""
 def create_big_matrix(global_dict, question_type):
-    print "question #"+str(question_type+1)
-    print "name "
+    print "question #" + str(question_type + 1)
     temp_x = []
     temp_y = []
     for item in global_dict:
@@ -99,9 +99,9 @@ def create_big_matrix(global_dict, question_type):
         for y_val in global_dict[item].get_y_matrix(question_type):
             temp_y.append(y_val)
 
-    return temp_x, temp_y # and doing the same for y, and returning them
+    return temp_x, temp_y  # and doing the same for y, and returning them
 
-big_x, big_y = create_big_matrix(professorDict, 1)
+big_x, big_y = create_big_matrix(professorDict, 0)
 #so we're looking at question 2*** question TWO, the quality of class one
 # after iterating through the big matrix of all the sections
 # big_x, big_y = create_big_matrix(courseDict)
@@ -132,14 +132,14 @@ def linear_regression(big_x, big_y):
     XtXinvXt = numpy.dot(XtXinv, Xt)
     # print "XtXinvXt"
     # print XtXinvXt
-    XtXinvXtY = numpy.dot(XtXinvXt, Y) #unweighted theta vector
+    XtXinvXtY = numpy.dot(XtXinvXt, Y)  # unweighted theta vector
     #print "XtXinvXtY"
     #print "---------"
     #print XtXinvXtY <= this is our theta equation!
     #normalize => then i normalize, as per numpy/taylor's (my friend) formula
     XtXinvXtYt = XtXinvXtY.T
     normalized_weights = [(item/(math.sqrt(numpy.dot(XtXinvXtYt,XtXinvXtY))))for item in XtXinvXtY]
-    return normalized_weights # and return
+    return normalized_weights  # and return
 
 count = 0 # and then it's easy! just iterate through the normalized results. these are our weights. lets loo
 for item in linear_regression(big_x, big_y):
@@ -168,7 +168,7 @@ def get_avg_features_professor(name, professorDict):
     if not name:
         name = random.choice(professorDict.keys())
 
-    print "name = " + name # i'm stpuid as ffuck
+    print "name = " + name
     features = professorDict[name].get_x_matrix()
     avg_features = [0,0,0,0,0,0,0,0]
     for featurelist in features:
@@ -185,12 +185,30 @@ def get_avg_features_professor(name, professorDict):
 
 def predict_score(input_features, normalized_weights):
     # average of a rand prof * weights =
-    orig_val = numpy.dot(input_features,normalized_weights)
+    orig_val = numpy.dot(input_features, normalized_weights)
     max_avg = [5 for i in range(0,8)]
-    scaling_factor = numpy.dot(max_avg,normalized_weights)
-    print (orig_val/scaling_factor)*5
+    scaling_factor = numpy.dot(max_avg, normalized_weights)
+    return (orig_val / scaling_factor) * 5
 
 
-input_features = get_avg_features_professor("", professorDict)
+def ten_fold_validation():
+    orderedProfessorDict = OrderedDict(sorted(professorDict.items(), key=lambda t: t[0]))
+    oneFoldLen = len(professorDict) / 10
+    training = dict(itertools.islice(orderedProfessorDict.iteritems(), oneFoldLen, len(orderedProfessorDict) - 1))
+    validation = dict(itertools.islice(orderedProfessorDict.iteritems(), 0, oneFoldLen))
+    x_dim, y_dim = create_big_matrix(training, 0)
+    training_weights = linear_regression(x_dim, y_dim)
+    for prof in validation:
+        input_features = get_avg_features_professor(prof, professorDict)
+        training_score = predict_score(input_features, training_weights)
+        print training_score
+
+
+if len(sys.argv) == 2:
+    input_features = get_avg_features_professor(sys.argv[1], professorDict)
+else:
+    input_features = get_avg_features_professor("", professorDict)
 normalized_weights = linear_regression(big_x, big_y)
-predict_score(input_features, normalized_weights)
+print predict_score(input_features, normalized_weights)
+print "-----------------------------------------"
+ten_fold_validation()
