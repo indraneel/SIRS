@@ -179,7 +179,6 @@ def get_avg_features_professor(name, professorDict):
     # print avg_features
     avg_features = [item/len(features) for item in avg_features]
     # print "post dividing by sum"
-    print "avg features = ",avg_features
     return avg_features
 
 
@@ -198,10 +197,14 @@ def ten_fold_validation():
     validation = dict(itertools.islice(orderedProfessorDict.iteritems(), 0, oneFoldLen))
     x_dim, y_dim = create_big_matrix(training, 0)
     training_weights = linear_regression(x_dim, y_dim)
+    error_sum = 0
     for prof in validation:
-        input_features = get_avg_features_professor(prof, professorDict)
-        training_score = predict_score(input_features, training_weights)
-        print training_score
+        avg_features = get_avg_features_professor(prof, professorDict)
+        training_score = predict_score(input_features, normalized_weights)
+        validation_score = predict_score(avg_features, training_weights)
+        error_sum += math.sqrt((training_score - validation_score) ** 2)
+        print "t_score = ", training_score, "v_score = ", validation_score
+    print "error = ", error_sum / len(validation)
 
 
 if len(sys.argv) == 2:
