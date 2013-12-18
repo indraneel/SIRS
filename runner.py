@@ -4,7 +4,8 @@ import math
 import models as m
 import os
 import numpy
-from scipy import linalg
+import scipy
+from scipy.stats import pearsonr
 from collections import OrderedDict
 import itertools
 
@@ -189,6 +190,14 @@ def predict_score(input_features, normalized_weights):
     scaling_factor = numpy.dot(max_avg, normalized_weights)
     return (orig_val / scaling_factor) * 5
 
+def correlation():
+    y1 = []
+    y2 = []
+    for prof in professorDict:
+        for section in professorDict[prof].all_sections:
+            y1.append(section.y[0])
+            y2.append(section.y[1])
+    return pearsonr(y1, y2)
 
 def ten_fold_validation():
     orderedProfessorDict = OrderedDict(sorted(professorDict.items(), key=lambda t: t[0]))
@@ -200,7 +209,7 @@ def ten_fold_validation():
     error_sum = 0
     for prof in validation:
         avg_features = get_avg_features_professor(prof, professorDict)
-        training_score = predict_score(input_features, normalized_weights)
+        training_score = predict_score(avg_features, normalized_weights)
         validation_score = predict_score(avg_features, training_weights)
         error_sum += math.sqrt((training_score - validation_score) ** 2)
         print "t_score = ", training_score, "v_score = ", validation_score
@@ -212,6 +221,10 @@ if len(sys.argv) == 2:
 else:
     input_features = get_avg_features_professor("", professorDict)
 normalized_weights = linear_regression(big_x, big_y)
-print predict_score(input_features, normalized_weights)
-print "-----------------------------------------"
-ten_fold_validation()
+#print predict_score(input_features, normalized_weights)
+#print "-----------------------------------------"
+#ten_fold_validation()
+#print "-----------------------------------------"
+
+
+print correlation()
