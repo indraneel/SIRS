@@ -9,11 +9,15 @@ from scipy.stats import pearsonr
 from collections import OrderedDict
 import itertools
 
+# GLOBALS
 professorDict = {}  # train
 courseDict = {}  # train
 
 testProfessorDict= {}
 testCourseDict = {}  # test
+
+big_x = []
+big_y = []
 
 
 """parse and make Section and Professor objects"""
@@ -64,13 +68,6 @@ def makeObject(dirpath, filename):
         currProfessor.add_section(newSection)
         sections_added.append(newSection)
 
-num_folds = 10
-for (dirpath, dirnames, filenames) in os.walk("./parsed-data/"):
-    #subset_training_size = len(filenames)/num_folds
-    for filename in filenames:
-        #for i in range(0, subset_training_size - 1):
-        if filename[-4:] == ".txt":
-            makeObject(dirpath, filename)
 
 """
 Show which questions have impact on quality of course
@@ -84,8 +81,6 @@ via seeing their weights after linear regression
         add the Y's to a global vector
 
 """
-big_x = []
-big_y = []
 """ question_type takes [0,1]: {
         0: 'y1 (effec. of instructor)',
         1: 'y2 (quality of course)'
@@ -101,7 +96,6 @@ def create_big_matrix(global_dict, question_type):
 
     return temp_x, temp_y  # and doing the same for y, and returning them
 
-big_x, big_y = create_big_matrix(professorDict, 0)
 #so we're looking at question 2*** question TWO, the quality of class one
 # after iterating through the big matrix of all the sections
 # big_x, big_y = create_big_matrix(courseDict)
@@ -131,9 +125,6 @@ def linear_regression(big_x, big_y):
     return normalized_weights  # and return
 
 # and then it's easy! just iterate through the normalized results. these are our weights. lets loo
-count = 0
-for item in linear_regression(big_x, big_y):
-    count += 1
 
 
 """
@@ -177,7 +168,7 @@ def correlation():
             y2.append(section.y[1])
     return pearsonr(y1, y2)
 
-def root_mean_squared_error():
+def root_mean_squared_error(normalized_weights):
     sum_squared_error = 0
     y1_sum = 0
     y2_sum = 0
@@ -214,18 +205,34 @@ def ten_fold_validation():
     print "error = ", error_sum / len(validation)
 
 
+def main():
+    num_folds = 10
+    for (dirpath, dirnames, filenames) in os.walk("./parsed-data/"):
+        #subset_training_size = len(filenames)/num_folds
+        for filename in filenames:
+            #for i in range(0, subset_training_size - 1):
+            if filename[-4:] == ".txt":
+                makeObject(dirpath, filename)
 
-if len(sys.argv) == 2:
-    input_features = get_avg_features_professor(sys.argv[1])
-else:
-    input_features = get_avg_features_professor("")
-normalized_weights = linear_regression(big_x, big_y)
+    big_x, big_y = create_big_matrix(professorDict, 0)
 
-print predict_score(input_features, normalized_weights)
-print root_mean_squared_error()
-#print "-----------------------------------------"
-#ten_fold_validation()
-#print "-----------------------------------------"
+    count = 0
+    for item in linear_regression(big_x, big_y):
+        count += 1
+    if len(sys.argv) == 2:
+        input_features = get_avg_features_professor(sys.argv[1])
+    else:
+        input_features = get_avg_features_professor("")
+    normalized_weights = linear_regression(big_x, big_y)
+
+    print predict_score(input_features, normalized_weights)
+    print root_mean_squared_error(normalized_weights)
+    #print "-----------------------------------------"
+    #ten_fold_validation()
+    #print "-----------------------------------------"
+
+    print correlation()
 
 
-print correlation()
+if __name__ == "__main__":
+    main()
