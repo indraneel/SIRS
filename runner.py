@@ -91,7 +91,6 @@ big_y = []
         1: 'y2 (quality of course)'
     }"""
 def create_big_matrix(global_dict, question_type):
-    print "question #" + str(question_type + 1)
     temp_x = []
     temp_y = []
     for item in global_dict:
@@ -106,7 +105,6 @@ big_x, big_y = create_big_matrix(professorDict, 0)
 #so we're looking at question 2*** question TWO, the quality of class one
 # after iterating through the big matrix of all the sections
 # big_x, big_y = create_big_matrix(courseDict)
-# print professorDict
 """
 now this is happening
     put the arrays into the numpy arrays
@@ -122,30 +120,20 @@ def linear_regression(big_x, big_y):
     X = numpy.array(big_x)
     Y = numpy.array(big_y)
     Xt = X.T
-    # print "Xt"
-    # print Xt
     XtX = numpy.dot(Xt,X)
-    # print "XtX"
-    # print XtX
     XtXinv = numpy.linalg.inv(XtX)
-    # print "XtXinv"
-    # print XtXinv
     XtXinvXt = numpy.dot(XtXinv, Xt)
-    # print "XtXinvXt"
-    # print XtXinvXt
     XtXinvXtY = numpy.dot(XtXinvXt, Y)  # unweighted theta vector
-    #print "XtXinvXtY"
-    #print "---------"
     #print XtXinvXtY <= this is our theta equation!
     #normalize => then i normalize, as per numpy/taylor's (my friend) formula
     XtXinvXtYt = XtXinvXtY.T
-    normalized_weights = [(item/(math.sqrt(numpy.dot(XtXinvXtYt,XtXinvXtY))))for item in XtXinvXtY]
+    normalized_weights = [(item / (math.sqrt(numpy.dot(XtXinvXtYt,XtXinvXtY)))) for item in XtXinvXtY]
     return normalized_weights  # and return
 
-count = 0 # and then it's easy! just iterate through the normalized results. these are our weights. lets loo
+# and then it's easy! just iterate through the normalized results. these are our weights. lets loo
+count = 0
 for item in linear_regression(big_x, big_y):
-    print "weight of question number ",count+1,"=",item
-    count+=1
+    count += 1
 
 
 """
@@ -154,39 +142,29 @@ entire section list and average all the x1s->x8s
 plug in these averages into this: X * theta
 AND THAT SHOULD EQUAL THE PREDICTION FOR
 
-BY THE WAY => I PUT SOME RESULTS IN THE NOTES ON THE POWERPOINT
-IT IS VERY MUCH NOT FINISHED HOWEVER.
-DO YOU WANT TO DO THAT NOW WHILE I DO THIS?
-Are we ready to give results? EVERYTHING BUT THAT
-
-
 currently writing the part where we
 take in an avg professor features
 and then do the plugging stuff"""
-def get_avg_features_professor(name, professorDict):
+def get_avg_features_professor(name):
     if not name in professorDict:
         name = random.choice(professorDict.keys())
     if not name:
         name = random.choice(professorDict.keys())
 
-    print "name = " + name
     features = professorDict[name].get_x_matrix()
-    avg_features = [0,0,0,0,0,0,0,0]
+    avg_features = [0, 0, 0, 0, 0, 0, 0, 0]
     for featurelist in features:
         for i in range(len(featurelist)):
             avg_features[i] += featurelist[i]
 
-    # print "pre-dividing by sum"
-    # print avg_features
-    avg_features = [item/len(features) for item in avg_features]
-    # print "post dividing by sum"
+    avg_features = [item / len(features) for item in avg_features]
     return avg_features
 
 
 def predict_score(input_features, normalized_weights):
     # average of a rand prof * weights =
     orig_val = numpy.dot(input_features, normalized_weights)
-    max_avg = [5 for i in range(0,8)]
+    max_avg = [5 for i in range(0, 8)]
     scaling_factor = numpy.dot(max_avg, normalized_weights)
     return (orig_val / scaling_factor) * 5
 
@@ -199,6 +177,26 @@ def correlation():
             y2.append(section.y[1])
     return pearsonr(y1, y2)
 
+def root_mean_squared_error():
+    sum_squared_error = 0
+    y1_sum = 0
+    y2_sum = 0
+    prof_class_average = 0
+    for prof in professorDict:
+        prof_features = get_avg_features_professor(prof)
+        predicted_score = predict_score(prof_features, normalized_weights)
+        sections = professorDict[prof].all_sections
+        for section in sections:
+            y1_sum += section.y[0]
+            y2_sum += section.y[1]
+        prof_class_average = ((y1_sum / len(sections)) + (y2_sum / len(sections))) / 2
+        sum_squared_error += (predicted_score - prof_class_average) ** 2
+        y1_sum = 0
+        y2_sum = 0
+    result = math.sqrt(sum_squared_error / len(professorDict))
+    return result
+
+
 def ten_fold_validation():
     orderedProfessorDict = OrderedDict(sorted(professorDict.items(), key=lambda t: t[0]))
     oneFoldLen = len(professorDict) / 10
@@ -208,7 +206,7 @@ def ten_fold_validation():
     training_weights = linear_regression(x_dim, y_dim)
     error_sum = 0
     for prof in validation:
-        avg_features = get_avg_features_professor(prof, professorDict)
+        avg_features = get_avg_features_professor(prof)
         training_score = predict_score(avg_features, normalized_weights)
         validation_score = predict_score(avg_features, training_weights)
         error_sum += math.sqrt((training_score - validation_score) ** 2)
@@ -216,12 +214,15 @@ def ten_fold_validation():
     print "error = ", error_sum / len(validation)
 
 
+
 if len(sys.argv) == 2:
-    input_features = get_avg_features_professor(sys.argv[1], professorDict)
+    input_features = get_avg_features_professor(sys.argv[1])
 else:
-    input_features = get_avg_features_professor("", professorDict)
+    input_features = get_avg_features_professor("")
 normalized_weights = linear_regression(big_x, big_y)
-#print predict_score(input_features, normalized_weights)
+
+print predict_score(input_features, normalized_weights)
+print root_mean_squared_error()
 #print "-----------------------------------------"
 #ten_fold_validation()
 #print "-----------------------------------------"
