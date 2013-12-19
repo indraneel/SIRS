@@ -168,27 +168,24 @@ def correlation():
             y2.append(section.y[1])
     return pearsonr(y1, y2)
 
-def root_mean_squared_error(normalized_weights):
+def root_mean_squared_error(normalized_weights, question_type):
     sum_squared_error = 0
-    y1_sum = 0
-    y2_sum = 0
+    y_sum = 0
     prof_class_average = 0
     for prof in professorDict:
         prof_features = get_avg_features_professor(prof)
         predicted_score = predict_score(prof_features, normalized_weights)
         sections = professorDict[prof].all_sections
         for section in sections:
-            y1_sum += section.y[0]
-            y2_sum += section.y[1]
-        prof_class_average = ((y1_sum / len(sections)) + (y2_sum / len(sections))) / 2
+            y_sum += section.y[question_type]
+        prof_class_average = (y_sum / len(sections))
         sum_squared_error += (predicted_score - prof_class_average) ** 2
-        y1_sum = 0
-        y2_sum = 0
+        y_sum = 0
     result = math.sqrt(sum_squared_error / len(professorDict))
     return result
 
 
-def ten_fold_validation():
+def ten_fold_validation(normalized_weights):
     orderedProfessorDict = OrderedDict(sorted(professorDict.items(), key=lambda t: t[0]))
     oneFoldLen = len(professorDict) / 10
     training = dict(itertools.islice(orderedProfessorDict.iteritems(), oneFoldLen, len(orderedProfessorDict) - 1))
@@ -201,20 +198,21 @@ def ten_fold_validation():
         training_score = predict_score(avg_features, normalized_weights)
         validation_score = predict_score(avg_features, training_weights)
         error_sum += math.sqrt((training_score - validation_score) ** 2)
-        print "t_score = ", training_score, "v_score = ", validation_score
-    print "error = ", error_sum / len(validation)
+    return (error_sum / len(validation))
 
 
 def main():
-    num_folds = 10
     for (dirpath, dirnames, filenames) in os.walk("./parsed-data/"):
-        #subset_training_size = len(filenames)/num_folds
         for filename in filenames:
-            #for i in range(0, subset_training_size - 1):
             if filename[-4:] == ".txt":
                 makeObject(dirpath, filename)
 
-    big_x, big_y = create_big_matrix(professorDict, 0)
+    """ 0 => question 9 will be target variable
+        1 => quesiton 10 will be target variable
+    """
+    question_type = 0;
+
+    big_x, big_y = create_big_matrix(professorDict, question_type)
 
     count = 0
     for item in linear_regression(big_x, big_y):
@@ -225,13 +223,10 @@ def main():
         input_features = get_avg_features_professor("")
     normalized_weights = linear_regression(big_x, big_y)
 
-    print predict_score(input_features, normalized_weights)
-    print root_mean_squared_error(normalized_weights)
-    #print "-----------------------------------------"
-    #ten_fold_validation()
-    #print "-----------------------------------------"
-
-    print correlation()
+    print "predicted score for random prof: " + str(predict_score(input_features, normalized_weights))
+    print "rmse: " + str(root_mean_squared_error(normalized_weights, question_type))
+    print "ten fold: " + str(ten_fold_validation(normalized_weights))
+    print "correlation: " + str(correlation()[0])
 
 
 if __name__ == "__main__":
