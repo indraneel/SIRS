@@ -1,0 +1,86 @@
+// global variables
+
+@sirs-red: #FF7979;
+@sirs-white: #FFC5C5;
+@sirs-brown: #7F6363;
+@inner-width: 1024px;
+
+// global mixins
+
+// elements
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+form,
+fieldset,
+input {
+	//border: none;
+	margin: 0;
+	outline: none;
+}
+
+// layout
+.page {
+    position: relative;
+    min-height: 100%;
+}
+
+.top-bar {
+    height: 55px;
+    width: 100%;
+    background-color: @sirs-red; 
+    position: fixed;
+	z-index: 100;
+
+    .wrapper {
+		max-width: @inner-width;
+		margin: 0 auto;
+
+    }
+
+	.logo {
+		float: left;
+		padding: 15px;
+	}
+
+}
+
+.main {
+    padding: 58px 0 50px;
+    margin: 0 auto;
+	position: relative;
+    width: 100%;
+
+	.search-box {
+		font-size: 36px;
+		width: 100%;
+		text-align: center;
+		margin: 0 auto; 
+		padding: 10px;
+	}
+}
+
+.prof-course-lookup {
+	border: none;
+	width: @inner-width;
+	margin: 0 auto;
+	padding: 40px 0 5px;
+	max-height: 75px;
+
+}
+.selection {
+	display: block;
+	clear: both;
+	background-color: #C69999;
+	color: grey;
+
+	.info {
+		float: left;
+	}
+
+	.choices {
+		float: right;
+	}
+}

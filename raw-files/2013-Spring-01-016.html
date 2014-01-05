@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+
+<title>SIRS Results for Spring  2013,  01:016 </title>
+
+  
+<script type="text/javascript"  src="/scripts/contact.js"></script>
+<script type="text/javascript"  src="/scripts/jquery.js"></script>
+<!-- script type="text/javascript"  src="/scripts/jquery-migrate-1.1.0.js"></script -->
+<script type="text/javascript" src="/scripts/jquery_plugins/highcharts/highcharts.js"></script>
+
+<style type='text/css'> .hidden {display: none;} </style>
+
+
+<link rel='stylesheet' type='text/css' href='styles/boxes.css'><link rel='stylesheet' type='text/css' href='sirs.css' media='all'>
+			<link rel='stylesheet' type='text/css' href='styles/sirs-print.css' media='print'>
+			<link rel='stylesheet' type='text/css' media='only screen and (min-device-width: 320px) and (max-device-width: 568px)' href='styles/phone.css'>
+			
+<script type='text/javascript'>
+ $(document).ready( function(){
+			
+				Highcharts.setOptions({
+					chart: {
+						type: 'column'
+					},
+					plotOptions: {
+						series: {
+							dataLabels: {enabled: true}
+						},
+						animation: false
+					},
+					title: { text: null },
+					legend: { enabled: false },
+					tooltip: { enabled: false },
+					xAxis: {
+						title: {text: 'Student Responses'},
+						categories: ["Strongly Disagree","Disagree","Neutral","Agree","Strongly Agree"]
+					},
+					yAxis: {
+						title: {text: 'Frequency'},
+						allowDecimals: false
+					},
+					credits: { enabled: false }
+				});
+	
+  
+			
+
+			
+			
+			$("#smallText").click( function(){
+				var newSize = parseFloat($("html").css("font-size") ) ;
+
+				newSize = newSize * 0.8;	
+				$("html").css("font-size",newSize);
+				return false;
+			});
+			$("#bigText").click( function(){
+				var newSize = parseFloat($("html").css("font-size") ) ;
+
+				newSize = newSize * 1.2;	
+				$("html").css("font-size",newSize);
+				return false;
+			});
+			
+			var chart1Q1 = {"yAxis":{"max":13},"series":[{"data":[1,1,0,5,6]}]}
+var chart1Q2 = {"yAxis":{"max":13},"series":[{"data":[0,2,0,1,10]}]}
+var chart1Q3 = {"yAxis":{"max":13},"series":[{"data":[0,1,2,4,6]}]}
+var chart1Q4 = {"yAxis":{"max":13},"series":[{"data":[0,2,0,2,9]}]}
+var chart1Q5 = {"yAxis":{"max":13},"series":[{"data":[0,1,1,4,7]}]}
+var chart1Q6 = {"yAxis":{"max":13},"series":[{"data":[0,1,3,4,5]}]}
+var chart1Q7 = {"yAxis":{"max":13},"series":[{"data":[0,1,1,6,5]}]}
+var chart1Q8 = {"yAxis":{"max":13},"series":[{"data":[0,5,4,0,4]}]}
+var chart1Q9 = {"xAxis":{"categories":["Poor","","","","Excellent"]},"yAxis":{"max":13},"series":[{"data":[1,0,2,6,4]}]}
+var chart1Q10 = {"xAxis":{"categories":["Poor","","","","Excellent"]},"yAxis":{"max":13},"series":[{"data":[1,0,3,5,4]}]}
+var chart2Q1 = {"yAxis":{"max":7},"series":[{"data":[0,0,0,0,7]}]}
+var chart2Q2 = {"yAxis":{"max":7},"series":[{"data":[0,0,0,0,7]}]}
+var chart2Q3 = {"yAxis":{"max":7},"series":[{"data":[0,0,0,1,6]}]}
+var chart2Q4 = {"yAxis":{"max":7},"series":[{"data":[0,0,0,0,7]}]}
+var chart2Q5 = {"yAxis":{"max":6},"series":[{"data":[0,0,0,1,5]}]}
+var chart2Q6 = {"yAxis":{"max":7},"series":[{"data":[0,0,0,3,4]}]}
+var chart2Q7 = {"yAxis":{"max":7},"series":[{"data":[0,0,0,0,7]}]}
+var chart2Q8 = {"yAxis":{"max":7},"series":[{"data":[0,0,1,1,5]}]}
+var chart2Q9 = {"xAxis":{"categories":["Poor","","","","Excellent"]},"yAxis":{"max":7},"series":[{"data":[0,0,0,0,7]}]}
+var chart2Q10 = {"xAxis":{"categories":["Poor","","","","Excellent"]},"yAxis":{"max":7},"series":[{"data":[0,0,0,0,7]}]}
+var chart3Q1 = {"yAxis":{"max":7},"series":[{"data":[0,0,0,1,6]}]}
+var chart3Q2 = {"yAxis":{"max":7},"series":[{"data":[0,0,0,1,6]}]}
+var chart3Q3 = {"yAxis":{"max":7},"series":[{"data":[0,0,0,1,6]}]}
+var chart3Q4 = {"yAxis":{"max":7},"series":[{"data":[0,0,0,0,7]}]}
+var chart3Q5 = {"yAxis":{"max":7},"series":[{"data":[0,0,0,0,7]}]}
+var chart3Q6 = {"yAxis":{"max":7},"series":[{"data":[0,0,0,0,7]}]}
+var chart3Q7 = {"yAxis":{"max":7},"series":[{"data":[0,0,1,0,6]}]}
+var chart3Q8 = {"yAxis":{"max":7},"series":[{"data":[0,0,1,2,4]}]}
+var chart3Q9 = {"xAxis":{"categories":["Poor","","","","Excellent"]},"yAxis":{"max":7},"series":[{"data":[0,0,1,1,5]}]}
+var chart3Q10 = {"xAxis":{"categories":["Poor","","","","Excellent"]},"yAxis":{"max":7},"series":[{"data":[0,0,0,2,5]}]}
+	$('.showGraphs').click(function (){
+				var myData = $(this).parents('table');
+				myData.find('.responseColTop').css({display: 'table-cell'});
+				myData.find('#noResponse').css({display: 'table-cell'});
+				myData.find('.blank').css({display: 'table-cell'});
+				myData.find('.text').addClass('hidden');
+				myData.find('.chart').removeClass('hidden');
+				myData.find('.graphTest').each( function(  ){
+					$(this).css( {height: '15em', width: '25em'} );
+					$(this).highcharts( eval(this.id) );
+				});
+				$(this).hide();
+			}); 
+ }); 
+ </script>
+</head>
+
+<body>
+
+ <!-- logout = '' --><div class='noprint'><p id='buttons'><button type='button' id='smallText'>A</button> <button type='button' id='bigText'>A</button></p><p><br><a href='index.php'>New Search</a> | <a href='http://ctaar.rutgers.edu/sirs/reading-new.html' class='instructions'  target='info'>How to Read SIRS Summaries</a> | <a href='http://ctaar.rutgers.edu/sirs/guidelines.html' class='instructions' target='info'>Important Guidelines for Interpreting SIRS</a>
+ 	<br><a href='index.php?logout=true'>Log out</a></p>
+	</div>
+
+<p><strong>Beta - we are actively working on improving this site. </strong><br>
+  Something not working? Suggestions for improvement? Please let us know by writing to <a href="#" id="infobeta" onClick="realMeat('info','ctaar.rutgers.edu','infobeta');">info@<span class="nospam">brokenmail.rutgers.edu please replace &quot;brokenmail&quot; with </span>ctaar.rutgers.edu</a>. <br>
+  Older Student Instructional Rating Survey results can also be viewed at the <a href="http://sirs.rutgers.edu/login.html">old SIRS site</a> - <a href="http://sirs.rutgers.edu/login.html">http://sirs.rutgers.edu/login.html</a> </p>
+  
+
+
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><div id='d1' class='onepage'><p id="s485151"> &nbsp;</p>
+ <table id='t485151'>
+  <caption><strong>Rutgers University Student Instructional Rating</strong> <br> Standard SIRS  (Online Survey) <br>
+   
+  </caption>
+  <colgroup span="1" class="questions"></colgroup>
+    <colgroup  class="distribution" >
+  	<col  class="odd">
+    <col  class="even">
+    <col  class="odd">
+    <col  class="even">
+    <col  class="odd">
+    <col  class="even">
+  </colgroup>
+
+  <colgroup class="statistics" >
+  	<col class='mSection'>
+  	<col class='mCourse'>
+  	<col class='mLevel'>
+  	<col class='mDept'>
+  </colgroup>
+  
+   <tr>
+   		<td rowspan='2' class="qText">
+   		<strong>  Cooper B.    </strong>  <br> Spring  2013
+   		<br>  01:016:222:01   &mdash; <q>Modern Africa </q> (index #48515)   <br> (Crosslisted with 01:508:222:01) <br>
+       Enrollment=  26,  Responses= 13   
+       <br><a href='#d1' class='showGraphs'>Show Graphs</a>
+   		
+   		
+   		<br>
+   		<br><strong>Part A: University-wide Questions:</strong></td>
+   		<th colspan='6' class='mono responseColTop'  style='text-align: left'>Student Responses</th>
+   		
+   		<th colspan='4' class='mono' style='text-align: left'>Weighted Means</th>
+   		
+   </tr>
+      <tr>
+   
+   	<th scope='col' colspan='5' class='chart hidden'></th>
+    <th scope="col" class="mono text" id='scale1'>Strong<br>Disagree<br>1</th>
+    <th scope="col" class='mono text' id='scale2'>2</th>
+    <th scope="col" class='mono text' id='scale3'>3</th>
+    <th scope="col" class='mono text' id='scale4'>4</th>
+    <th scope="col" class="mono text" id='scale5' >Strong<br>Agree<br>5</th>
+    <th scope="col" class="mono" style='text-align: center'  id='noResponse'>No response<br>&nbsp;</th>
+    <th scope="col" class="mono stats"  id='sectionMean'>Section</th>
+    <th scope="col" class="mono stats" id='courseMean'>Course</th>
+    <th scope="col" class="mono stats" id='levelMean'>Level</th>
+    <th scope="col" class="mono stats" id='deptMean'>Dept</th>
+
+  </tr>
+  
+   <tbody> 		 <tr onclick=''>
+		 	<td  class='qText' >1. The instructor was prepared for class and presented the material in an organized manner</td>
+			<td colspan="5" class="chart hidden"><span id='chart1Q1' class="graphTest">chart1Q1 </span> </td>
+			
+			<td  class="mono one text ">1</td>
+			<td  class="mono two text ">1</td>
+			<td  class="mono three text ">0</td>
+			<td  class="mono four text ">5</td>
+			<td  class="mono five text ">6</td>
+			
+			<td  class="mono blank">0</td>
+			<td  class="mono stats mQuestion">4.08</td>
+			<td  class="mono stats">4.08</td>
+			<td  class="mono stats">4.08</td>
+			<td  class="mono stats mQuestion">4.52</td>
+			
+  		</tr>		 <tr onclick=''>
+		 	<td  class='qText' >2. The instructor responded effectively to student comments and questions</td>
+			<td colspan="5" class="chart hidden"><span id='chart1Q2' class="graphTest">chart1Q2 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">2</td>
+			<td  class="mono three text ">0</td>
+			<td  class="mono four text ">1</td>
+			<td  class="mono five text ">10</td>
+			
+			<td  class="mono blank">0</td>
+			<td  class="mono stats mQuestion">4.46</td>
+			<td  class="mono stats">4.46</td>
+			<td  class="mono stats">4.46</td>
+			<td  class="mono stats mQuestion">4.70</td>
+			
+  		</tr>		 <tr onclick=''>
+		 	<td  class='qText' >3. The instructor generated interest in the course material</td>
+			<td colspan="5" class="chart hidden"><span id='chart1Q3' class="graphTest">chart1Q3 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">1</td>
+			<td  class="mono three text ">2</td>
+			<td  class="mono four text ">4</td>
+			<td  class="mono five text ">6</td>
+			
+			<td  class="mono blank">0</td>
+			<td  class="mono stats mQuestion">4.15</td>
+			<td  class="mono stats">4.15</td>
+			<td  class="mono stats">4.15</td>
+			<td  class="mono stats mQuestion">4.52</td>
+			
+  		</tr>		 <tr onclick=''>
+		 	<td  class='qText' >4. The instructor had a positive attitude toward assisting all students in understanding course material</td>
+			<td colspan="5" class="chart hidden"><span id='chart1Q4' class="graphTest">chart1Q4 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">2</td>
+			<td  class="mono three text ">0</td>
+			<td  class="mono four text ">2</td>
+			<td  class="mono five text ">9</td>
+			
+			<td  class="mono blank">0</td>
+			<td  class="mono stats mQuestion">4.38</td>
+			<td  class="mono stats">4.38</td>
+			<td  class="mono stats">4.38</td>
+			<td  class="mono stats mQuestion">4.70</td>
+			
+  		</tr>		 <tr onclick=''>
+		 	<td  class='qText' >5. The instructor assigned grades fairly</td>
+			<td colspan="5" class="chart hidden"><span id='chart1Q5' class="graphTest">chart1Q5 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">1</td>
+			<td  class="mono three text ">1</td>
+			<td  class="mono four text ">4</td>
+			<td  class="mono five text ">7</td>
+			
+			<td  class="mono blank">0</td>
+			<td  class="mono stats mQuestion">4.31</td>
+			<td  class="mono stats">4.31</td>
+			<td  class="mono stats">4.31</td>
+			<td  class="mono stats mQuestion">4.62</td>
+			
+  		</tr>		 <tr onclick=''>
+		 	<td  class='qText' >6. The instructional methods encouraged student learning</td>
+			<td colspan="5" class="chart hidden"><span id='chart1Q6' class="graphTest">chart1Q6 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">1</td>
+			<td  class="mono three text ">3</td>
+			<td  class="mono four text ">4</td>
+			<td  class="mono five text ">5</td>
+			
+			<td  class="mono blank">0</td>
+			<td  class="mono stats mQuestion">4.00</td>
+			<td  class="mono stats">4.00</td>
+			<td  class="mono stats">4.00</td>
+			<td  class="mono stats mQuestion">4.41</td>
+			
+  		</tr>		 <tr onclick=''>
+		 	<td  class='qText' >7. I learned a great deal in this course</td>
+			<td colspan="5" class="chart hidden"><span id='chart1Q7' class="graphTest">chart1Q7 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">1</td>
+			<td  class="mono three text ">1</td>
+			<td  class="mono four text ">6</td>
+			<td  class="mono five text ">5</td>
+			
+			<td  class="mono blank">0</td>
+			<td  class="mono stats mQuestion">4.15</td>
+			<td  class="mono stats">4.15</td>
+			<td  class="mono stats">4.15</td>
+			<td  class="mono stats mQuestion">4.52</td>
+			
+  		</tr>		 <tr onclick=''>
+		 	<td  class='qText' >8. I had a strong prior interest in the subject matter and wanted to take this course</td>
+			<td colspan="5" class="chart hidden"><span id='chart1Q8' class="graphTest">chart1Q8 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">5</td>
+			<td  class="mono three text ">4</td>
+			<td  class="mono four text ">0</td>
+			<td  class="mono five text ">4</td>
+			
+			<td  class="mono blank">0</td>
+			<td  class="mono stats mQuestion">3.23</td>
+			<td  class="mono stats">3.23</td>
+			<td  class="mono stats">3.23</td>
+			<td  class="mono stats mQuestion">3.89</td>
+			
+  		</tr><tr class='mono'>
+  	<th>
+  	<th class='chart hidden' colspan='5'>
+  	<th class='text responseCol'>Poor
+  	  <th  class='text responseCol' scope='col' colspan='3'></th>
+  	<th  class='text responseCol'>Excellent
+  	<th class='responseColTop'>
+  	<th class='mono stats'>
+  	<th class='mono stats'>
+  	<th class='mono stats'>
+  	<th class='mono stats'>
+  </tr>
+		 <tr onclick=''>
+		 	<td  class='qText' >9. I rate the teaching effectiveness of the instructor as</td>
+			<td colspan="5" class="chart hidden"><span id='chart1Q9' class="graphTest">chart1Q9 </span> </td>
+			
+			<td  class="mono one text ">1</td>
+			<td  class="mono two text ">0</td>
+			<td  class="mono three text ">2</td>
+			<td  class="mono four text ">6</td>
+			<td  class="mono five text ">4</td>
+			
+			<td  class="mono blank">0</td>
+			<td  class="mono stats mQuestion">3.92</td>
+			<td  class="mono stats">3.92</td>
+			<td  class="mono stats">3.92</td>
+			<td  class="mono stats mQuestion">4.37</td>
+			
+  		</tr>		 <tr onclick=''>
+		 	<td  class='qText' >10. I rate the overall quality of the course as</td>
+			<td colspan="5" class="chart hidden"><span id='chart1Q10' class="graphTest">chart1Q10 </span> </td>
+			
+			<td  class="mono one text ">1</td>
+			<td  class="mono two text ">0</td>
+			<td  class="mono three text ">3</td>
+			<td  class="mono four text ">5</td>
+			<td  class="mono five text ">4</td>
+			
+			<td  class="mono blank">0</td>
+			<td  class="mono stats mQuestion">3.85</td>
+			<td  class="mono stats">3.85</td>
+			<td  class="mono stats">3.85</td>
+			<td  class="mono stats mQuestion">4.37</td>
+			
+  		</tr></table>
+</div>
+				<p>&nbsp;</p><div id='d2' class='onepage'><p id="s470492"> &nbsp;</p>
+ <table id='t470492'>
+  <caption><strong>Rutgers University Student Instructional Rating</strong> <br> Standard SIRS  (Online Survey) <br>
+   
+  </caption>
+  <colgroup span="1" class="questions"></colgroup>
+    <colgroup  class="distribution" >
+  	<col  class="odd">
+    <col  class="even">
+    <col  class="odd">
+    <col  class="even">
+    <col  class="odd">
+    <col  class="even">
+  </colgroup>
+
+  <colgroup class="statistics" >
+  	<col class='mSection'>
+  	<col class='mCourse'>
+  	<col class='mLevel'>
+  	<col class='mDept'>
+  </colgroup>
+  
+   <tr>
+   		<td rowspan='2' class="qText">
+   		<strong>  Milburn S.    </strong>  <br> Spring  2013
+   		<br>  01:016:314:01   &mdash; <q>Sub-Sahara Afr Polic </q> (index #47049)   <br> (Crosslisted with 01:790:314:01) <br>
+       Enrollment=  16,  Responses= 7   
+       <br><a href='#d2' class='showGraphs'>Show Graphs</a>
+   		
+   		
+   		<br>
+   		<br><strong>Part A: University-wide Questions:</strong></td>
+   		<th colspan='6' class='mono responseColTop'  style='text-align: left'>Student Responses</th>
+   		
+   		<th colspan='4' class='mono' style='text-align: left'>Weighted Means</th>
+   		
+   </tr>
+      <tr>
+   
+   	<th scope='col' colspan='5' class='chart hidden'></th>
+    <th scope="col" class="mono text" id='scale1'>Strong<br>Disagree<br>1</th>
+    <th scope="col" class='mono text' id='scale2'>2</th>
+    <th scope="col" class='mono text' id='scale3'>3</th>
+    <th scope="col" class='mono text' id='scale4'>4</th>
+    <th scope="col" class="mono text" id='scale5' >Strong<br>Agree<br>5</th>
+    <th scope="col" class="mono" style='text-align: center'  id='noResponse'>No response<br>&nbsp;</th>
+    <th scope="col" class="mono stats"  id='sectionMean'>Section</th>
+    <th scope="col" class="mono stats" id='courseMean'>Course</th>
+    <th scope="col" class="mono stats" id='levelMean'>Level</th>
+    <th scope="col" class="mono stats" id='deptMean'>Dept</th>
+
+  </tr>
+  
+   <tbody> 		 <tr onclick=''>
+		 	<td  class='qText' >1. The instructor was prepared for class and presented the material in an organized manner</td>
+			<td colspan="5" class="chart hidden"><span id='chart2Q1' class="graphTest">chart2Q1 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">0</td>
+			<td  class="mono three text ">0</td>
+			<td  class="mono four text ">0</td>
+			<td  class="mono five text ">7</td>
+			
+			<td  class="mono blank">0</td>
+			<td  class="mono stats mQuestion">5.00</td>
+			<td  class="mono stats">5.00</td>
+			<td  class="mono stats">4.93</td>
+			<td  class="mono stats mQuestion">4.52</td>
+			
+  		</tr>		 <tr onclick=''>
+		 	<td  class='qText' >2. The instructor responded effectively to student comments and questions</td>
+			<td colspan="5" class="chart hidden"><span id='chart2Q2' class="graphTest">chart2Q2 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">0</td>
+			<td  class="mono three text ">0</td>
+			<td  class="mono four text ">0</td>
+			<td  class="mono five text ">7</td>
+			
+			<td  class="mono blank">0</td>
+			<td  class="mono stats mQuestion">5.00</td>
+			<td  class="mono stats">5.00</td>
+			<td  class="mono stats">4.93</td>
+			<td  class="mono stats mQuestion">4.70</td>
+			
+  		</tr>		 <tr onclick=''>
+		 	<td  class='qText' >3. The instructor generated interest in the course material</td>
+			<td colspan="5" class="chart hidden"><span id='chart2Q3' class="graphTest">chart2Q3 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">0</td>
+			<td  class="mono three text ">0</td>
+			<td  class="mono four text ">1</td>
+			<td  class="mono five text ">6</td>
+			
+			<td  class="mono blank">0</td>
+			<td  class="mono stats mQuestion">4.86</td>
+			<td  class="mono stats">4.86</td>
+			<td  class="mono stats">4.86</td>
+			<td  class="mono stats mQuestion">4.52</td>
+			
+  		</tr>		 <tr onclick=''>
+		 	<td  class='qText' >4. The instructor had a positive attitude toward assisting all students in understanding course material</td>
+			<td colspan="5" class="chart hidden"><span id='chart2Q4' class="graphTest">chart2Q4 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">0</td>
+			<td  class="mono three text ">0</td>
+			<td  class="mono four text ">0</td>
+			<td  class="mono five text ">7</td>
+			
+			<td  class="mono blank">0</td>
+			<td  class="mono stats mQuestion">5.00</td>
+			<td  class="mono stats">5.00</td>
+			<td  class="mono stats">5.00</td>
+			<td  class="mono stats mQuestion">4.70</td>
+			
+  		</tr>		 <tr onclick=''>
+		 	<td  class='qText' >5. The instructor assigned grades fairly</td>
+			<td colspan="5" class="chart hidden"><span id='chart2Q5' class="graphTest">chart2Q5 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">0</td>
+			<td  class="mono three text ">0</td>
+			<td  class="mono four text ">1</td>
+			<td  class="mono five text ">5</td>
+			
+			<td  class="mono blank">1</td>
+			<td  class="mono stats mQuestion">4.83</td>
+			<td  class="mono stats">4.83</td>
+			<td  class="mono stats">4.92</td>
+			<td  class="mono stats mQuestion">4.62</td>
+			
+  		</tr>		 <tr onclick=''>
+		 	<td  class='qText' >6. The instructional methods encouraged student learning</td>
+			<td colspan="5" class="chart hidden"><span id='chart2Q6' class="graphTest">chart2Q6 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">0</td>
+			<td  class="mono three text ">0</td>
+			<td  class="mono four text ">3</td>
+			<td  class="mono five text ">4</td>
+			
+			<td  class="mono blank">0</td>
+			<td  class="mono stats mQuestion">4.57</td>
+			<td  class="mono stats">4.57</td>
+			<td  class="mono stats">4.79</td>
+			<td  class="mono stats mQuestion">4.41</td>
+			
+  		</tr>		 <tr onclick=''>
+		 	<td  class='qText' >7. I learned a great deal in this course</td>
+			<td colspan="5" class="chart hidden"><span id='chart2Q7' class="graphTest">chart2Q7 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">0</td>
+			<td  class="mono three text ">0</td>
+			<td  class="mono four text ">0</td>
+			<td  class="mono five text ">7</td>
+			
+			<td  class="mono blank">0</td>
+			<td  class="mono stats mQuestion">5.00</td>
+			<td  class="mono stats">5.00</td>
+			<td  class="mono stats">4.86</td>
+			<td  class="mono stats mQuestion">4.52</td>
+			
+  		</tr>		 <tr onclick=''>
+		 	<td  class='qText' >8. I had a strong prior interest in the subject matter and wanted to take this course</td>
+			<td colspan="5" class="chart hidden"><span id='chart2Q8' class="graphTest">chart2Q8 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">0</td>
+			<td  class="mono three text ">1</td>
+			<td  class="mono four text ">1</td>
+			<td  class="mono five text ">5</td>
+			
+			<td  class="mono blank">0</td>
+			<td  class="mono stats mQuestion">4.57</td>
+			<td  class="mono stats">4.57</td>
+			<td  class="mono stats">4.50</td>
+			<td  class="mono stats mQuestion">3.89</td>
+			
+  		</tr><tr class='mono'>
+  	<th>
+  	<th class='chart hidden' colspan='5'>
+  	<th class='text responseCol'>Poor
+  	  <th  class='text responseCol' scope='col' colspan='3'></th>
+  	<th  class='text responseCol'>Excellent
+  	<th class='responseColTop'>
+  	<th class='mono stats'>
+  	<th class='mono stats'>
+  	<th class='mono stats'>
+  	<th class='mono stats'>
+  </tr>
+		 <tr onclick=''>
+		 	<td  class='qText' >9. I rate the teaching effectiveness of the instructor as</td>
+			<td colspan="5" class="chart hidden"><span id='chart2Q9' class="graphTest">chart2Q9 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">0</td>
+			<td  class="mono three text ">0</td>
+			<td  class="mono four text ">0</td>
+			<td  class="mono five text ">7</td>
+			
+			<td  class="mono blank">0</td>
+			<td  class="mono stats mQuestion">5.00</td>
+			<td  class="mono stats">5.00</td>
+			<td  class="mono stats">4.79</td>
+			<td  class="mono stats mQuestion">4.37</td>
+			
+  		</tr>		 <tr onclick=''>
+		 	<td  class='qText' >10. I rate the overall quality of the course as</td>
+			<td colspan="5" class="chart hidden"><span id='chart2Q10' class="graphTest">chart2Q10 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">0</td>
+			<td  class="mono three text ">0</td>
+			<td  class="mono four text ">0</td>
+			<td  class="mono five text ">7</td>
+			
+			<td  class="mono blank">0</td>
+			<td  class="mono stats mQuestion">5.00</td>
+			<td  class="mono stats">5.00</td>
+			<td  class="mono stats">4.86</td>
+			<td  class="mono stats mQuestion">4.37</td>
+			
+  		</tr></table>
+</div>
+				<p>&nbsp;</p><div id='d3' class='onepage'><p id="s530843"> &nbsp;</p>
+ <table id='t530843'>
+  <caption><strong>Rutgers University Student Instructional Rating</strong> <br> Standard SIRS  (Online Survey) <br>
+   
+  </caption>
+  <colgroup span="1" class="questions"></colgroup>
+    <colgroup  class="distribution" >
+  	<col  class="odd">
+    <col  class="even">
+    <col  class="odd">
+    <col  class="even">
+    <col  class="odd">
+    <col  class="even">
+  </colgroup>
+
+  <colgroup class="statistics" >
+  	<col class='mSection'>
+  	<col class='mCourse'>
+  	<col class='mLevel'>
+  	<col class='mDept'>
+  </colgroup>
+  
+   <tr>
+   		<td rowspan='2' class="qText">
+   		<strong>  Alidou     </strong>  <br> Spring  2013
+   		<br>  01:016:363:01   &mdash; <q>African Women Writrs </q> (index #53084)   <br> (Crosslisted with 01:195:363:01, 01:013:311:01, 01:988:312:01) <br>
+       Enrollment=  20,  Responses= 8   
+       <br><a href='#d3' class='showGraphs'>Show Graphs</a>
+   		
+   		
+   		<br>
+   		<br><strong>Part A: University-wide Questions:</strong></td>
+   		<th colspan='6' class='mono responseColTop'  style='text-align: left'>Student Responses</th>
+   		
+   		<th colspan='4' class='mono' style='text-align: left'>Weighted Means</th>
+   		
+   </tr>
+      <tr>
+   
+   	<th scope='col' colspan='5' class='chart hidden'></th>
+    <th scope="col" class="mono text" id='scale1'>Strong<br>Disagree<br>1</th>
+    <th scope="col" class='mono text' id='scale2'>2</th>
+    <th scope="col" class='mono text' id='scale3'>3</th>
+    <th scope="col" class='mono text' id='scale4'>4</th>
+    <th scope="col" class="mono text" id='scale5' >Strong<br>Agree<br>5</th>
+    <th scope="col" class="mono" style='text-align: center'  id='noResponse'>No response<br>&nbsp;</th>
+    <th scope="col" class="mono stats"  id='sectionMean'>Section</th>
+    <th scope="col" class="mono stats" id='courseMean'>Course</th>
+    <th scope="col" class="mono stats" id='levelMean'>Level</th>
+    <th scope="col" class="mono stats" id='deptMean'>Dept</th>
+
+  </tr>
+  
+   <tbody> 		 <tr onclick=''>
+		 	<td  class='qText' >1. The instructor was prepared for class and presented the material in an organized manner</td>
+			<td colspan="5" class="chart hidden"><span id='chart3Q1' class="graphTest">chart3Q1 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">0</td>
+			<td  class="mono three text ">0</td>
+			<td  class="mono four text ">1</td>
+			<td  class="mono five text ">6</td>
+			
+			<td  class="mono blank">1</td>
+			<td  class="mono stats mQuestion">4.86</td>
+			<td  class="mono stats">4.86</td>
+			<td  class="mono stats">4.93</td>
+			<td  class="mono stats mQuestion">4.52</td>
+			
+  		</tr>		 <tr onclick=''>
+		 	<td  class='qText' >2. The instructor responded effectively to student comments and questions</td>
+			<td colspan="5" class="chart hidden"><span id='chart3Q2' class="graphTest">chart3Q2 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">0</td>
+			<td  class="mono three text ">0</td>
+			<td  class="mono four text ">1</td>
+			<td  class="mono five text ">6</td>
+			
+			<td  class="mono blank">1</td>
+			<td  class="mono stats mQuestion">4.86</td>
+			<td  class="mono stats">4.86</td>
+			<td  class="mono stats">4.93</td>
+			<td  class="mono stats mQuestion">4.70</td>
+			
+  		</tr>		 <tr onclick=''>
+		 	<td  class='qText' >3. The instructor generated interest in the course material</td>
+			<td colspan="5" class="chart hidden"><span id='chart3Q3' class="graphTest">chart3Q3 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">0</td>
+			<td  class="mono three text ">0</td>
+			<td  class="mono four text ">1</td>
+			<td  class="mono five text ">6</td>
+			
+			<td  class="mono blank">1</td>
+			<td  class="mono stats mQuestion">4.86</td>
+			<td  class="mono stats">4.86</td>
+			<td  class="mono stats">4.86</td>
+			<td  class="mono stats mQuestion">4.52</td>
+			
+  		</tr>		 <tr onclick=''>
+		 	<td  class='qText' >4. The instructor had a positive attitude toward assisting all students in understanding course material</td>
+			<td colspan="5" class="chart hidden"><span id='chart3Q4' class="graphTest">chart3Q4 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">0</td>
+			<td  class="mono three text ">0</td>
+			<td  class="mono four text ">0</td>
+			<td  class="mono five text ">7</td>
+			
+			<td  class="mono blank">1</td>
+			<td  class="mono stats mQuestion">5.00</td>
+			<td  class="mono stats">5.00</td>
+			<td  class="mono stats">5.00</td>
+			<td  class="mono stats mQuestion">4.70</td>
+			
+  		</tr>		 <tr onclick=''>
+		 	<td  class='qText' >5. The instructor assigned grades fairly</td>
+			<td colspan="5" class="chart hidden"><span id='chart3Q5' class="graphTest">chart3Q5 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">0</td>
+			<td  class="mono three text ">0</td>
+			<td  class="mono four text ">0</td>
+			<td  class="mono five text ">7</td>
+			
+			<td  class="mono blank">1</td>
+			<td  class="mono stats mQuestion">5.00</td>
+			<td  class="mono stats">5.00</td>
+			<td  class="mono stats">4.92</td>
+			<td  class="mono stats mQuestion">4.62</td>
+			
+  		</tr>		 <tr onclick=''>
+		 	<td  class='qText' >6. The instructional methods encouraged student learning</td>
+			<td colspan="5" class="chart hidden"><span id='chart3Q6' class="graphTest">chart3Q6 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">0</td>
+			<td  class="mono three text ">0</td>
+			<td  class="mono four text ">0</td>
+			<td  class="mono five text ">7</td>
+			
+			<td  class="mono blank">1</td>
+			<td  class="mono stats mQuestion">5.00</td>
+			<td  class="mono stats">5.00</td>
+			<td  class="mono stats">4.79</td>
+			<td  class="mono stats mQuestion">4.41</td>
+			
+  		</tr>		 <tr onclick=''>
+		 	<td  class='qText' >7. I learned a great deal in this course</td>
+			<td colspan="5" class="chart hidden"><span id='chart3Q7' class="graphTest">chart3Q7 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">0</td>
+			<td  class="mono three text ">1</td>
+			<td  class="mono four text ">0</td>
+			<td  class="mono five text ">6</td>
+			
+			<td  class="mono blank">1</td>
+			<td  class="mono stats mQuestion">4.71</td>
+			<td  class="mono stats">4.71</td>
+			<td  class="mono stats">4.86</td>
+			<td  class="mono stats mQuestion">4.52</td>
+			
+  		</tr>		 <tr onclick=''>
+		 	<td  class='qText' >8. I had a strong prior interest in the subject matter and wanted to take this course</td>
+			<td colspan="5" class="chart hidden"><span id='chart3Q8' class="graphTest">chart3Q8 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">0</td>
+			<td  class="mono three text ">1</td>
+			<td  class="mono four text ">2</td>
+			<td  class="mono five text ">4</td>
+			
+			<td  class="mono blank">1</td>
+			<td  class="mono stats mQuestion">4.43</td>
+			<td  class="mono stats">4.43</td>
+			<td  class="mono stats">4.50</td>
+			<td  class="mono stats mQuestion">3.89</td>
+			
+  		</tr><tr class='mono'>
+  	<th>
+  	<th class='chart hidden' colspan='5'>
+  	<th class='text responseCol'>Poor
+  	  <th  class='text responseCol' scope='col' colspan='3'></th>
+  	<th  class='text responseCol'>Excellent
+  	<th class='responseColTop'>
+  	<th class='mono stats'>
+  	<th class='mono stats'>
+  	<th class='mono stats'>
+  	<th class='mono stats'>
+  </tr>
+		 <tr onclick=''>
+		 	<td  class='qText' >9. I rate the teaching effectiveness of the instructor as</td>
+			<td colspan="5" class="chart hidden"><span id='chart3Q9' class="graphTest">chart3Q9 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">0</td>
+			<td  class="mono three text ">1</td>
+			<td  class="mono four text ">1</td>
+			<td  class="mono five text ">5</td>
+			
+			<td  class="mono blank">1</td>
+			<td  class="mono stats mQuestion">4.57</td>
+			<td  class="mono stats">4.57</td>
+			<td  class="mono stats">4.79</td>
+			<td  class="mono stats mQuestion">4.37</td>
+			
+  		</tr>		 <tr onclick=''>
+		 	<td  class='qText' >10. I rate the overall quality of the course as</td>
+			<td colspan="5" class="chart hidden"><span id='chart3Q10' class="graphTest">chart3Q10 </span> </td>
+			
+			<td  class="mono one text ">0</td>
+			<td  class="mono two text ">0</td>
+			<td  class="mono three text ">0</td>
+			<td  class="mono four text ">2</td>
+			<td  class="mono five text ">5</td>
+			
+			<td  class="mono blank">1</td>
+			<td  class="mono stats mQuestion">4.71</td>
+			<td  class="mono stats">4.71</td>
+			<td  class="mono stats">4.86</td>
+			<td  class="mono stats mQuestion">4.37</td>
+			
+  		</tr></table>
+</div>
+				<p>&nbsp;</p><p><br><a href='index.php'>New Search</a> | <a href='http://ctaar.rutgers.edu/sirs/reading-new.html' class='instructions'  target='info'>How to Read SIRS Summaries</a> | <a href='http://ctaar.rutgers.edu/sirs/guidelines.html' class='instructions' target='info'>Important Guidelines for Interpreting SIRS</a>
+ 	<br><a href='index.php?logout=true'>Log out</a></p>   
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+
+  (function() {
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://ctaar.rutgers.edu/piwik/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", "1"]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Piwik Code --></body>
+</html>

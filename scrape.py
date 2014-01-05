@@ -5,7 +5,7 @@ import requests
 import sys
 import getpass
 
-raw_files_dir = "/root/SIRS/raw-data/"
+raw_files_dir = "./test/"
 
 def build_url(name="index", semester="", year="", schoolCode="", dept="", course=""):
     baseURL = "https://sirs.ctaar.rutgers.edu/"+name+".php"

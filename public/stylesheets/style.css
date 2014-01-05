@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+}
+form,
+fieldset,
+input {
+  margin: 0;
+  outline: none;
+}
+.page {
+  position: relative;
+  min-height: 100%;
+}
+.top-bar {
+  height: 55px;
+  width: 100%;
+  background-color: #ff7979;
+  position: fixed;
+  z-index: 100;
+}
+.top-bar .wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+.top-bar .logo {
+  float: left;
+  padding: 15px;
+}
+.main {
+  padding: 58px 0 50px;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+}
+.main .search-box {
+  font-size: 36px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px;
+}
+.prof-course-lookup {
+  border: none;
+  width: 1024px;
+  margin: 0 auto;
+  padding: 40px 0 5px;
+  max-height: 75px;
+}
+.selection {
+  display: block;
+  clear: both;
+  background-color: #C69999;
+  color: grey;
+}
+.selection .info {
+  float: left;
+}
+.selection .choices {
+  float: right;
+}

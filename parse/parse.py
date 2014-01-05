@@ -9,7 +9,7 @@ def parse(dirpath, filename):
     name = filename[:-5]
     name += ".txt"
     index_html = open(os.sep.join([dirpath,filename]), 'r')
-    targetFile = open(os.sep.join(["../parsed-data/", name]), 'w')
+    targetFile = open(os.sep.join(["../test/", name]), 'w')
     soup = BeautifulSoup(index_html)
     classRegex = "01\:[0-9]{3}\:[0-9]{3}\:[0-9]{2}"
 
@@ -47,7 +47,8 @@ def parse(dirpath, filename):
 
 count = 0
 list_of_files = {}
-for (dirpath, dirnames, filenames) in os.walk("../raw-data/"):
+# for (dirpath, dirnames, filenames) in os.walk("../raw-data/"):
+for (dirpath, dirnames, filenames) in os.walk("../test/"):
     for filename in filenames:
         if filename[-5:] == ".html":
             parse(dirpath, filename)

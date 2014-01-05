@@ -201,7 +201,7 @@ def ten_fold_validation(normalized_weights):
     return (error_sum / len(validation))
 
 
-def main():
+def run():
     for (dirpath, dirnames, filenames) in os.walk("./parsed-data/"):
         for filename in filenames:
             if filename[-4:] == ".txt":
@@ -230,4 +230,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    run()
