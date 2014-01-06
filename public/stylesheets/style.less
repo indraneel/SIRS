@@ -1,9 +1,9 @@
 // global variables
 
 @sirs-red: #FF7979;
-@sirs-white: #FFC5C5;
+@sirs-white: rgba(255, 184, 184, 0.29);
 @sirs-brown: #7F6363;
-@inner-width: 1024px;
+@inner-width: 800px;
 
 // global mixins
 
@@ -11,6 +11,7 @@
 body {
     margin: 0;
     padding: 0;
+	font-family: sans-serif;
     font-size: 20px;
 }
 form,
@@ -27,11 +28,18 @@ input {
     min-height: 100%;
 }
 
+.top-line {
+	height: 9px;
+    background-color: @sirs-red; 
+    width: 100%;
+}
+
 .top-bar {
     height: 55px;
     width: 100%;
     background-color: @sirs-red; 
     position: fixed;
+
 	z-index: 100;
 
     .wrapper {
@@ -41,25 +49,45 @@ input {
     }
 
 	.logo {
-		float: left;
+		text-align: center;
 		padding: 15px;
 	}
 
 }
 
 .main {
+	background-color: white;
     padding: 58px 0 50px;
     margin: 0 auto;
 	position: relative;
     width: 100%;
+	min-height: 400px;
 
-	.search-box {
-		font-size: 36px;
-		width: 100%;
-		text-align: center;
-		margin: 0 auto; 
+	.hero{
+		min-width: 240px;	
+		max-width: 600px;
+		width: @inner-width;
+		margin: 0 auto;
 		padding: 10px;
+		#logo {
+			font-size: 48px;
+		}
+
+		#search-box {
+			width: 100%;
+			font-size: 36px;
+		}
 	}
+
+}
+
+.footer {
+	width: 100%;
+	background-color: @sirs-white;
+	position: fixed;
+	bottom: 0;
+	padding: 2em;
+	z-index: 100;
 }
 
 .prof-course-lookup {
@@ -82,5 +110,19 @@ input {
 
 	.choices {
 		float: right;
+	}
+}
+
+.search-results {
+	position: relative;
+	width: @inner-width;
+	margin: 50px auto;
+
+	.result-card {
+		width: 800px;
+		height: 150px;
+		position: relative;
+		padding: 20px;
+		background-color: #E4DEDE;
 	}
 }

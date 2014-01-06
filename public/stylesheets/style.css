@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: sans-serif;
   font-size: 20px;
 }
 form,
@@ -13,6 +14,11 @@ input {
   position: relative;
   min-height: 100%;
 }
+.top-line {
+  height: 9px;
+  background-color: #ff7979;
+  width: 100%;
+}
 .top-bar {
   height: 55px;
   width: 100%;
@@ -21,29 +27,46 @@ input {
   z-index: 100;
 }
 .top-bar .wrapper {
-  max-width: 1024px;
+  max-width: 800px;
   margin: 0 auto;
 }
 .top-bar .logo {
-  float: left;
+  text-align: center;
   padding: 15px;
 }
 .main {
+  background-color: white;
   padding: 58px 0 50px;
   margin: 0 auto;
   position: relative;
   width: 100%;
+  min-height: 400px;
 }
-.main .search-box {
-  font-size: 36px;
-  width: 100%;
-  text-align: center;
+.main .hero {
+  min-width: 240px;
+  max-width: 600px;
+  width: 800px;
   margin: 0 auto;
   padding: 10px;
 }
+.main .hero #logo {
+  font-size: 48px;
+}
+.main .hero #search-box {
+  width: 100%;
+  font-size: 36px;
+}
+.footer {
+  width: 100%;
+  background-color: rgba(255, 184, 184, 0.29);
+  position: fixed;
+  bottom: 0;
+  padding: 2em;
+  z-index: 100;
+}
 .prof-course-lookup {
   border: none;
-  width: 1024px;
+  width: 800px;
   margin: 0 auto;
   padding: 40px 0 5px;
   max-height: 75px;
@@ -59,4 +82,16 @@ input {
 }
 .selection .choices {
   float: right;
+}
+.search-results {
+  position: relative;
+  width: 800px;
+  margin: 50px auto;
+}
+.search-results .result-card {
+  width: 800px;
+  height: 150px;
+  position: relative;
+  padding: 20px;
+  background-color: #E4DEDE;
 }
