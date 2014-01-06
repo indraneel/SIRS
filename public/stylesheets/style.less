@@ -11,15 +11,15 @@
 body {
     margin: 0;
     padding: 0;
-	font-family: sans-serif;
+    font-family: sans-serif;
     font-size: 20px;
 }
 form,
 fieldset,
 input {
-	//border: none;
-	margin: 0;
-	outline: none;
+    //border: none;
+    margin: 0;
+    outline: none;
 }
 
 // layout
@@ -29,7 +29,7 @@ input {
 }
 
 .top-line {
-	height: 9px;
+    height: 9px;
     background-color: @sirs-red; 
     width: 100%;
 }
@@ -40,89 +40,91 @@ input {
     background-color: @sirs-red; 
     position: fixed;
 
-	z-index: 100;
+    z-index: 100;
 
     .wrapper {
-		max-width: @inner-width;
-		margin: 0 auto;
+        max-width: @inner-width;
+        margin: 0 auto;
 
     }
 
-	.logo {
-		text-align: center;
-		padding: 15px;
-	}
+    .logo {
+        text-align: center;
+        padding: 15px;
+    }
 
 }
 
 .main {
-	background-color: white;
+    background-color: white;
     padding: 58px 0 50px;
     margin: 0 auto;
-	position: relative;
+    position: relative;
     width: 100%;
-	min-height: 400px;
+    min-height: 400px;
 
-	.hero{
-		min-width: 240px;	
-		max-width: 600px;
-		width: @inner-width;
-		margin: 0 auto;
-		padding: 10px;
-		#logo {
-			font-size: 48px;
-		}
+    .hero{
+        min-width: 240px;   
+        max-width: 600px;
+        width: @inner-width;
+        margin: 0 auto;
+        padding: 10px;
+        #logo {
+            font-size: 48px;
+            text-align: center;
+            padding: 40px;
+        }
 
-		#search-box {
-			width: 100%;
-			font-size: 36px;
-		}
-	}
+        #search-box {
+            width: 100%;
+            font-size: 36px;
+        }
+    }
 
 }
 
 .footer {
-	width: 100%;
-	background-color: @sirs-white;
-	position: fixed;
-	bottom: 0;
-	padding: 2em;
-	z-index: 100;
+    width: 100%;
+    background-color: @sirs-white;
+    position: fixed;
+    bottom: 0;
+    padding: 2em;
+    z-index: 100;
 }
 
 .prof-course-lookup {
-	border: none;
-	width: @inner-width;
-	margin: 0 auto;
-	padding: 40px 0 5px;
-	max-height: 75px;
+    border: none;
+    width: @inner-width;
+    margin: 0 auto;
+    padding: 40px 0 5px;
+    max-height: 75px;
 
 }
 .selection {
-	display: block;
-	clear: both;
-	background-color: #C69999;
-	color: grey;
+    display: block;
+    clear: both;
+    background-color: #C69999;
+    color: grey;
 
-	.info {
-		float: left;
-	}
+    .info {
+        float: left;
+    }
 
-	.choices {
-		float: right;
-	}
+    .choices {
+        float: right;
+    }
 }
 
 .search-results {
-	position: relative;
-	width: @inner-width;
-	margin: 50px auto;
+    position: relative;
+    width: @inner-width;
+    margin: 50px auto;
 
-	.result-card {
-		width: 800px;
-		height: 150px;
-		position: relative;
-		padding: 20px;
-		background-color: #E4DEDE;
-	}
+    .result-card {
+        width: 800px;
+        height: 150px;
+        position: relative;
+        padding: 20px;
+        background-color: #E4DEDE;
+    }
 }

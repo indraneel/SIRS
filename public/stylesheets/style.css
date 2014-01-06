@@ -51,6 +51,8 @@ input {
 }
 .main .hero #logo {
   font-size: 48px;
+  text-align: center;
+  padding: 40px;
 }
 .main .hero #search-box {
   width: 100%;
