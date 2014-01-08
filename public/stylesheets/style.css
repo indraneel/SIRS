@@ -1,8 +1,12 @@
+div {
+  display: block;
+}
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Asap', sans-serif;
   font-size: 20px;
+  height: 100%;
 }
 form,
 fieldset,
@@ -13,6 +17,7 @@ input {
 .page {
   position: relative;
   min-height: 100%;
+  z-index: 0;
 }
 .top-line {
   height: 9px;
@@ -34,18 +39,24 @@ input {
   text-align: center;
   padding: 15px;
 }
+.top-bar .logo a {
+  color: white;
+  text-decoration: none;
+}
+.top-bar .logo a:hover {
+  background-color: rgba(255, 184, 184, 0.29);
+}
 .main {
   background-color: white;
   padding: 58px 0 50px;
   margin: 0 auto;
   position: relative;
-  width: 100%;
-  min-height: 400px;
+  min-width: 100%;
+  min-height: 102%;
 }
 .main .hero {
   min-width: 240px;
   max-width: 600px;
-  width: 800px;
   margin: 0 auto;
   padding: 10px;
 }
@@ -59,12 +70,14 @@ input {
   font-size: 36px;
 }
 .footer {
-  width: 100%;
   background-color: rgba(255, 184, 184, 0.29);
   position: fixed;
   bottom: 0;
-  padding: 2em;
-  z-index: 100;
+  left: 0;
+  right: 0;
+  font-size: 14px;
+  padding: 1em;
+  overflow: hidden;
 }
 .prof-course-lookup {
   border: none;
@@ -86,14 +99,51 @@ input {
   float: right;
 }
 .search-results {
-  position: relative;
-  width: 800px;
-  margin: 50px auto;
+  min-width: 240px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 .search-results .result-card {
-  width: 800px;
-  height: 150px;
+  margin: 10px auto 10px;
+  height: 100px;
   position: relative;
-  padding: 20px;
+  clear: both;
+  padding: 10px;
   background-color: #E4DEDE;
+}
+.search-results .result-card .left {
+  display: inline-block;
+  vertical-align: middle;
+  width: 31%;
+  height: 100%;
+  overflow: hidden;
+  text-align: left;
+}
+.search-results .result-card .middle {
+  display: inline-block;
+  height: 100%;
+  overflow: hidden;
+  width: 31%;
+  vertical-align: middle;
+  text-align: center;
+}
+.search-results .result-card .right {
+  height: 100%;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  width: 31%;
+  text-align: right;
+}
+.search-results .result-card span {
+  display: block;
+}
+.search-results .result-card ul {
+  list-style: none;
+}
+.search-results .result-card .name {
+  font-weight: bold;
+}
+.search-results .result-card .years {
+  font-size: 14px;
 }

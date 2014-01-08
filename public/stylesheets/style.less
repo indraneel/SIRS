@@ -1,18 +1,24 @@
+// imports
+
 // global variables
 
 @sirs-red: #FF7979;
-@sirs-white: rgba(255, 184, 184, 0.29);
+@sirs-light-red: rgba(255, 184, 184, 0.29);
 @sirs-brown: #7F6363;
 @inner-width: 800px;
 
 // global mixins
 
 // elements
+div {
+    display: block;
+}
 body {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: 'Asap', sans-serif;
     font-size: 20px;
+    height: 100%; 
 }
 form,
 fieldset,
@@ -26,6 +32,7 @@ input {
 .page {
     position: relative;
     min-height: 100%;
+    z-index: 0;
 }
 
 .top-line {
@@ -39,8 +46,8 @@ input {
     width: 100%;
     background-color: @sirs-red; 
     position: fixed;
-
     z-index: 100;
+
 
     .wrapper {
         max-width: @inner-width;
@@ -49,6 +56,13 @@ input {
     }
 
     .logo {
+	a {
+	    color: white;
+	    text-decoration: none;
+	    &:hover{
+		background-color: @sirs-light-red;
+	    }
+	}
         text-align: center;
         padding: 15px;
     }
@@ -60,13 +74,12 @@ input {
     padding: 58px 0 50px;
     margin: 0 auto;
     position: relative;
-    width: 100%;
-    min-height: 400px;
+    min-width: 100%;
+    min-height: 102%;
 
     .hero{
         min-width: 240px;   
         max-width: 600px;
-        width: @inner-width;
         margin: 0 auto;
         padding: 10px;
         #logo {
@@ -84,12 +97,14 @@ input {
 }
 
 .footer {
-    width: 100%;
-    background-color: @sirs-white;
+    background-color: @sirs-light-red;
     position: fixed;
     bottom: 0;
-    padding: 2em;
-    z-index: 100;
+    left: 0;
+    right: 0;
+    font-size: 14px;
+    padding: 1em;
+    overflow: hidden;
 }
 
 .prof-course-lookup {
@@ -116,15 +131,60 @@ input {
 }
 
 .search-results {
-    position: relative;
-    width: @inner-width;
-    margin: 50px auto;
+    min-width: 240px;
+    max-width: 600px;
+    margin: 0 auto;
 
     .result-card {
-        width: 800px;
-        height: 150px;
+	margin: 10px auto 10px;
+        height: 100px;
         position: relative;
-        padding: 20px;
+	clear: both;
+        padding: 10px;
         background-color: #E4DEDE;
+
+	.left {
+	    display: inline-block;
+	    vertical-align: middle;
+	    width: 31%;
+	    height: 100%;
+	    overflow: hidden;
+	    text-align: left;
+	}
+
+	.middle {
+	    display: inline-block;
+	    height: 100%;
+	    overflow: hidden;
+	    width: 31%;
+	    vertical-align: middle;
+	    text-align: center;
+	}
+	    
+	.right {
+	    height: 100%;
+	    overflow: hidden;
+	    display: inline-block;
+	    vertical-align: middle;
+	    width: 31%;
+	    text-align: right;
+	}
+   
+	span {
+	    display: block;
+	}
+	
+	ul {
+	    list-style: none;
+	}
+
+	.name {
+	    font-weight: bold;
+	}
+	
+	.years {
+	    font-size: 14px;
+	}
+
     }
 }
