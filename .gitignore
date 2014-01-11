@@ -1,3 +1,4 @@
 readline-6.2.4.1-py2.7-macosx-10.7-intel.egg
 .DS_STORE
 raw-data/
+*.pyc
